@@ -1,0 +1,213 @@
+{
+  "name": "irminsul-theme",
+  "displayName": "Irminsul",
+  "description": "A VS Code theme in night-blue, cream and gold, with the seven elements as the colours of your code. Fan-made, inspired by Genshin Impact.",
+  "version": "0.1.0",
+  "publisher": "shamilimanuel",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Themes",
+    "Other"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Irminsul Night",
+        "uiTheme": "vs-dark",
+        "path": "./themes/irminsul-night-color-theme.json"
+      },
+      {
+        "label": "Irminsul Night · Pyro",
+        "uiTheme": "vs-dark",
+        "path": "./themes/irminsul-night-pyro-color-theme.json"
+      },
+      {
+        "label": "Irminsul Night · Hydro",
+        "uiTheme": "vs-dark",
+        "path": "./themes/irminsul-night-hydro-color-theme.json"
+      },
+      {
+        "label": "Irminsul Night · Anemo",
+        "uiTheme": "vs-dark",
+        "path": "./themes/irminsul-night-anemo-color-theme.json"
+      },
+      {
+        "label": "Irminsul Night · Electro",
+        "uiTheme": "vs-dark",
+        "path": "./themes/irminsul-night-electro-color-theme.json"
+      },
+      {
+        "label": "Irminsul Night · Dendro",
+        "uiTheme": "vs-dark",
+        "path": "./themes/irminsul-night-dendro-color-theme.json"
+      },
+      {
+        "label": "Irminsul Night · Cryo",
+        "uiTheme": "vs-dark",
+        "path": "./themes/irminsul-night-cryo-color-theme.json"
+      },
+      {
+        "label": "Irminsul Night · Geo",
+        "uiTheme": "vs-dark",
+        "path": "./themes/irminsul-night-geo-color-theme.json"
+      },
+      {
+        "label": "Irminsul Abyss",
+        "uiTheme": "vs-dark",
+        "path": "./themes/irminsul-abyss-color-theme.json"
+      },
+      {
+        "label": "Irminsul Abyss · Pyro",
+        "uiTheme": "vs-dark",
+        "path": "./themes/irminsul-abyss-pyro-color-theme.json"
+      },
+      {
+        "label": "Irminsul Abyss · Hydro",
+        "uiTheme": "vs-dark",
+        "path": "./themes/irminsul-abyss-hydro-color-theme.json"
+      },
+      {
+        "label": "Irminsul Abyss · Anemo",
+        "uiTheme": "vs-dark",
+        "path": "./themes/irminsul-abyss-anemo-color-theme.json"
+      },
+      {
+        "label": "Irminsul Abyss · Electro",
+        "uiTheme": "vs-dark",
+        "path": "./themes/irminsul-abyss-electro-color-theme.json"
+      },
+      {
+        "label": "Irminsul Abyss · Dendro",
+        "uiTheme": "vs-dark",
+        "path": "./themes/irminsul-abyss-dendro-color-theme.json"
+      },
+      {
+        "label": "Irminsul Abyss · Cryo",
+        "uiTheme": "vs-dark",
+        "path": "./themes/irminsul-abyss-cryo-color-theme.json"
+      },
+      {
+        "label": "Irminsul Abyss · Geo",
+        "uiTheme": "vs-dark",
+        "path": "./themes/irminsul-abyss-geo-color-theme.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "irminsul-icons",
+        "label": "Irminsul Icons",
+        "path": "./themes/irminsul-icon-theme.json"
+      },
+      {
+        "id": "irminsul-icons-parchment",
+        "label": "Irminsul Icons (Parchment folders)",
+        "path": "./themes/irminsul-icon-theme-parchment.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "irminsul.readAloud",
+        "title": "Read aloud",
+        "category": "Irminsul",
+        "icon": "$(unmute)"
+      },
+      {
+        "command": "irminsul.stopReading",
+        "title": "Stop reading",
+        "category": "Irminsul",
+        "icon": "$(debug-stop)"
+      },
+      {
+        "command": "irminsul.toggleReading",
+        "title": "Read aloud or stop",
+        "category": "Irminsul"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "irminsul.readAloud",
+          "when": "!irminsul.reading",
+          "group": "navigation@90"
+        },
+        {
+          "command": "irminsul.stopReading",
+          "when": "irminsul.reading",
+          "group": "navigation@90"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "irminsul.readAloud",
+          "when": "!irminsul.reading",
+          "group": "z_irminsul"
+        },
+        {
+          "command": "irminsul.stopReading",
+          "when": "irminsul.reading",
+          "group": "z_irminsul"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "irminsul.toggleReading",
+          "when": "false"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "irminsul.toggleReading",
+        "key": "ctrl+alt+r"
+      },
+      {
+        "command": "irminsul.stopReading",
+        "key": "escape",
+        "when": "irminsul.reading && editorTextFocus && !suggestWidgetVisible && !findWidgetVisible && !inlineChatVisible"
+      }
+    ],
+    "configuration": {
+      "title": "Irminsul",
+      "properties": {
+        "irminsul.readAloud.voice": {
+          "type": "string",
+          "enum": [
+            "sky",
+            "dutch",
+            "lessac"
+          ],
+          "enumDescriptions": [
+            "Sky (Kokoro): soft and airy, American. Your pick.",
+            "Nathalie (Piper): Dutch, Flemish accent.",
+            "Lessac (Piper): American, the first voice."
+          ],
+          "default": "sky",
+          "description": "A VS Code theme in night-blue, cream and gold, with the seven elements as the colours of your code. Fan-made, inspired by Genshin Impact."
+        },
+        "irminsul.readAloud.speed": {
+          "type": "number",
+          "default": 1,
+          "minimum": 0.5,
+          "maximum": 2,
+          "description": "A VS Code theme in night-blue, cream and gold, with the seven elements as the colours of your code. Fan-made, inspired by Genshin Impact."
+        },
+        "irminsul.readAloud.highlight": {
+          "type": "boolean",
+          "default": true,
+          "description": "A VS Code theme in night-blue, cream and gold, with the seven elements as the colours of your code. Fan-made, inspired by Genshin Impact."
+        },
+        "irminsul.readAloud.folder": {
+          "type": "string",
+          "default": "",
+          "description": "A VS Code theme in night-blue, cream and gold, with the seven elements as the colours of your code. Fan-made, inspired by Genshin Impact."
+        }
+      }
+    }
+  },
+  "main": "./src/extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ]
+}

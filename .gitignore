@@ -1,0 +1,11 @@
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+.vscode/
+tests/out/
+# voice models are downloaded separately and have their own licences
+*.onnx
+*.bin
+*.wav

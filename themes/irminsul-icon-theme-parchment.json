@@ -1,0 +1,247 @@
+{
+  "iconDefinitions": {
+    "_python": {
+      "iconPath": "../icons/python.svg"
+    },
+    "_javascript": {
+      "iconPath": "../icons/javascript.svg"
+    },
+    "_typescript": {
+      "iconPath": "../icons/typescript.svg"
+    },
+    "_html": {
+      "iconPath": "../icons/html.svg"
+    },
+    "_css": {
+      "iconPath": "../icons/css.svg"
+    },
+    "_json": {
+      "iconPath": "../icons/json.svg"
+    },
+    "_settings": {
+      "iconPath": "../icons/settings.svg"
+    },
+    "_skript": {
+      "iconPath": "../icons/skript.svg"
+    },
+    "_markdown": {
+      "iconPath": "../icons/markdown.svg"
+    },
+    "_readme": {
+      "iconPath": "../icons/readme.svg"
+    },
+    "_claude": {
+      "iconPath": "../icons/claude.svg"
+    },
+    "_text": {
+      "iconPath": "../icons/text.svg"
+    },
+    "_image": {
+      "iconPath": "../icons/image.svg"
+    },
+    "_script": {
+      "iconPath": "../icons/script.svg"
+    },
+    "_git": {
+      "iconPath": "../icons/git.svg"
+    },
+    "_package": {
+      "iconPath": "../icons/package.svg"
+    },
+    "_archive": {
+      "iconPath": "../icons/archive.svg"
+    },
+    "_pdf": {
+      "iconPath": "../icons/pdf.svg"
+    },
+    "_audio": {
+      "iconPath": "../icons/audio.svg"
+    },
+    "_video": {
+      "iconPath": "../icons/video.svg"
+    },
+    "_file": {
+      "iconPath": "../icons/file.svg"
+    },
+    "_folder-cream": {
+      "iconPath": "../icons/folder-cream.svg"
+    },
+    "_folder-cream-open": {
+      "iconPath": "../icons/folder-cream-open.svg"
+    },
+    "_folder-cream-docs": {
+      "iconPath": "../icons/folder-cream-docs.svg"
+    },
+    "_folder-cream-docs-open": {
+      "iconPath": "../icons/folder-cream-docs-open.svg"
+    },
+    "_folder-cream-tests": {
+      "iconPath": "../icons/folder-cream-tests.svg"
+    },
+    "_folder-cream-tests-open": {
+      "iconPath": "../icons/folder-cream-tests-open.svg"
+    },
+    "_folder-cream-tools": {
+      "iconPath": "../icons/folder-cream-tools.svg"
+    },
+    "_folder-cream-tools-open": {
+      "iconPath": "../icons/folder-cream-tools-open.svg"
+    },
+    "_folder-cream-themes": {
+      "iconPath": "../icons/folder-cream-themes.svg"
+    },
+    "_folder-cream-themes-open": {
+      "iconPath": "../icons/folder-cream-themes-open.svg"
+    },
+    "_folder-cream-claude": {
+      "iconPath": "../icons/folder-cream-claude.svg"
+    },
+    "_folder-cream-claude-open": {
+      "iconPath": "../icons/folder-cream-claude-open.svg"
+    },
+    "_folder-cream-art": {
+      "iconPath": "../icons/folder-cream-art.svg"
+    },
+    "_folder-cream-art-open": {
+      "iconPath": "../icons/folder-cream-art-open.svg"
+    },
+    "_folder-cream-scripts": {
+      "iconPath": "../icons/folder-cream-scripts.svg"
+    },
+    "_folder-cream-scripts-open": {
+      "iconPath": "../icons/folder-cream-scripts-open.svg"
+    },
+    "_folder-cream-git": {
+      "iconPath": "../icons/folder-cream-git.svg"
+    },
+    "_folder-cream-git-open": {
+      "iconPath": "../icons/folder-cream-git-open.svg"
+    }
+  },
+  "file": "_file",
+  "folder": "_folder-cream",
+  "folderExpanded": "_folder-cream-open",
+  "rootFolder": "_folder-cream",
+  "rootFolderExpanded": "_folder-cream-open",
+  "fileExtensions": {
+    "py": "_python",
+    "pyw": "_python",
+    "pyi": "_python",
+    "js": "_javascript",
+    "mjs": "_javascript",
+    "cjs": "_javascript",
+    "jsx": "_javascript",
+    "ts": "_typescript",
+    "tsx": "_typescript",
+    "mts": "_typescript",
+    "cts": "_typescript",
+    "html": "_html",
+    "htm": "_html",
+    "css": "_css",
+    "scss": "_css",
+    "sass": "_css",
+    "less": "_css",
+    "json": "_json",
+    "jsonc": "_json",
+    "json5": "_json",
+    "ini": "_settings",
+    "cfg": "_settings",
+    "conf": "_settings",
+    "toml": "_settings",
+    "yml": "_settings",
+    "yaml": "_settings",
+    "env": "_settings",
+    "properties": "_settings",
+    "sk": "_skript",
+    "md": "_markdown",
+    "markdown": "_markdown",
+    "txt": "_text",
+    "log": "_text",
+    "png": "_image",
+    "jpg": "_image",
+    "jpeg": "_image",
+    "gif": "_image",
+    "webp": "_image",
+    "svg": "_image",
+    "ico": "_image",
+    "bmp": "_image",
+    "ps1": "_script",
+    "psm1": "_script",
+    "psd1": "_script",
+    "bat": "_script",
+    "cmd": "_script",
+    "sh": "_script",
+    "zip": "_archive",
+    "7z": "_archive",
+    "rar": "_archive",
+    "tar": "_archive",
+    "gz": "_archive",
+    "pdf": "_pdf",
+    "mp3": "_audio",
+    "wav": "_audio",
+    "ogg": "_audio",
+    "flac": "_audio",
+    "m4a": "_audio",
+    "mp4": "_video",
+    "webm": "_video",
+    "mov": "_video",
+    "mkv": "_video",
+    "avi": "_video"
+  },
+  "fileNames": {
+    "claude.md": "_claude",
+    "readme.md": "_readme",
+    "package.json": "_package",
+    "package-lock.json": "_package",
+    ".gitignore": "_git",
+    ".gitattributes": "_git",
+    ".gitmodules": "_git"
+  },
+  "languageIds": {
+    "python": "_python",
+    "javascript": "_javascript",
+    "typescript": "_typescript",
+    "html": "_html",
+    "css": "_css",
+    "json": "_json",
+    "jsonc": "_json",
+    "markdown": "_markdown",
+    "skript": "_skript",
+    "powershell": "_script",
+    "bat": "_script",
+    "shellscript": "_script",
+    "yaml": "_settings",
+    "ini": "_settings",
+    "plaintext": "_text"
+  },
+  "folderNames": {
+    "docs": "_folder-cream-docs",
+    "doc": "_folder-cream-docs",
+    "tests": "_folder-cream-tests",
+    "test": "_folder-cream-tests",
+    "__tests__": "_folder-cream-tests",
+    "tools": "_folder-cream-tools",
+    "themes": "_folder-cream-themes",
+    ".claude": "_folder-cream-claude",
+    "art": "_folder-cream-art",
+    "images": "_folder-cream-art",
+    "assets": "_folder-cream-art",
+    "scripts": "_folder-cream-scripts",
+    ".git": "_folder-cream-git"
+  },
+  "folderNamesExpanded": {
+    "docs": "_folder-cream-docs-open",
+    "doc": "_folder-cream-docs-open",
+    "tests": "_folder-cream-tests-open",
+    "test": "_folder-cream-tests-open",
+    "__tests__": "_folder-cream-tests-open",
+    "tools": "_folder-cream-tools-open",
+    "themes": "_folder-cream-themes-open",
+    ".claude": "_folder-cream-claude-open",
+    "art": "_folder-cream-art-open",
+    "images": "_folder-cream-art-open",
+    "assets": "_folder-cream-art-open",
+    "scripts": "_folder-cream-scripts-open",
+    ".git": "_folder-cream-git-open"
+  }
+}

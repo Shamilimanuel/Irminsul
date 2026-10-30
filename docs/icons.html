@@ -1,0 +1,254 @@
+<title>Irminsul File Icons</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<!--
+  Irminsul file icons, prototype sheet (15 Oct 2026). Our own drawings on VS Code's 16 px grid; nothing from the game.
+  The symbols below are the source for the real icon theme later (a builder writes one SVG file per symbol).
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Zen+Maru+Gothic:wght@500;700&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+  /* Layout: header and switches, then your real Explorer drawn with the icons at true size, then every icon large with
+     what it is for. Single dark look on purpose: icons are judged on the theme's own side bar. */
+  :root {
+    --page: #0B0E16; --page-2: #131826; --page-3: #1A2032; --line: rgba(211,188,142,.24); --line-2: rgba(211,188,142,.12);
+    --cream: #ECE5D8; --dim: #A7A9B5; --faint: #858A9E; --gold: #D3BC8E; --gold-hi: #F3D79C;
+    --side: #11151F; --side-fg: #E4DDCD; --side-hl: #1D2332; --side-guide: #232A3B;
+    --display: "Cinzel", Georgia, serif; --ui: "Zen Maru Gothic", "Segoe UI", system-ui, sans-serif; --mono: "JetBrains Mono", Consolas, monospace;
+    color-scheme: dark;
+  }
+  :root[data-v="abyss"] { --side: #110E19; --side-fg: #E6DEEF; --side-hl: #201A2D; --side-guide: #261F36; }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  body { margin: 0; background: radial-gradient(1200px 600px at 70% -10%, #1C2236 0%, var(--page) 60%); background-color: var(--page); color: var(--cream);
+    font: 500 14.5px/1.55 var(--ui); padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 24px 56px; }
+  .wrap { max-width: 1200px; margin: 0 auto; display: grid; gap: 22px; }
+  button:focus-visible { outline: 2px solid var(--gold-hi); outline-offset: 2px; }
+  header { display: grid; gap: 6px; }
+  .eyebrow { font: 700 11px/1 var(--ui); letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+  h1 { margin: 0; font: 700 clamp(26px, 4vw, 38px)/1.1 var(--display); letter-spacing: .04em; color: var(--gold-hi); text-wrap: balance; }
+  h2 { margin: 0; font: 700 18px/1.2 var(--display); letter-spacing: .06em; color: var(--gold-hi); }
+  .lede { margin: 2px 0 0; color: var(--dim); max-width: 70ch; }
+  .controls { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
+  .grp { display: flex; align-items: center; gap: 8px; }
+  .grp > span { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+  .seg { display: inline-flex; flex-wrap: wrap; padding: 3px; border-radius: 999px; border: 1px solid var(--line); background: rgba(0,0,0,.3); }
+  .seg button { border: 0; background: transparent; color: var(--cream); font: 700 12.5px var(--ui); padding: 6px 13px; border-radius: 999px; cursor: pointer; }
+  .seg button[aria-pressed="true"] { background: var(--cream); color: #2B3142; }
+
+  /* ---------- the Explorer, drawn like VS Code's ---------- */
+  .panes { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; align-items: start; }
+  .pane { background: var(--side); border: 1px solid var(--side-guide); border-radius: 8px; overflow: hidden; min-width: 0; }
+  .pane h3 { margin: 0; padding: 9px 14px 7px; font: 700 11px var(--ui); letter-spacing: .1em; text-transform: uppercase; color: #9DA1B0; border-bottom: 1px solid var(--side-guide); }
+  .tree { padding: 4px 0 8px; font-family: "Segoe UI", system-ui, sans-serif; font-size: calc(13px * var(--z, 1)); color: var(--side-fg); }
+  .row { display: flex; align-items: center; height: calc(22px * var(--z, 1)); padding-left: calc((8px + var(--lv) * 8px) * var(--z, 1)); white-space: nowrap; position: relative; }
+  .row:hover { background: var(--side-hl); }
+  .row .tw { width: calc(16px * var(--z, 1)); color: #8B8FA0; font-size: .95em; line-height: 1; text-align: center; flex: none; display: inline-block; }
+  .row .tw.open { transform: rotate(90deg); }
+  .row svg { width: calc(16px * var(--z, 1)); height: calc(16px * var(--z, 1)); flex: none; margin-right: calc(6px * var(--z, 1)); }
+  .row .lbl { overflow: hidden; text-overflow: ellipsis; }
+  .row .gd { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--side-guide); }
+
+  /* ---------- every icon, large ---------- */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+  .tile { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 4px 14px; align-items: center; padding: 12px 14px; border-radius: 6px 18px 6px 6px;
+    background: var(--side); border: 1px solid var(--line-2); }
+  .tile .big { width: 64px; height: 64px; grid-row: span 2; }
+  .tile b { font: 700 14px/1.2 var(--ui); color: var(--cream); display: flex; gap: 8px; align-items: center; }
+  .tile b svg { width: 16px; height: 16px; flex: none; }
+  .tile small { color: var(--dim); font-size: 12px; line-height: 1.4; }
+  .tile code { font: 11.5px var(--mono); color: var(--gold-hi); }
+  .el { font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: var(--gold); }
+  .note { color: var(--dim); font-size: 13.5px; max-width: 78ch; margin: 0; }
+  .note b { color: var(--cream); }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<!-- The drawings: one symbol per icon on a 16-unit grid, light from the top left. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gHydro" gradientUnits="userSpaceOnUse" x1="4" y1="1" x2="12" y2="15"><stop offset="0" stop-color="#C2EEFF"/><stop offset="1" stop-color="#2380C2"/></linearGradient>
+    <linearGradient id="gPyro" gradientUnits="userSpaceOnUse" x1="4" y1="1" x2="12" y2="15"><stop offset="0" stop-color="#FFD48C"/><stop offset="1" stop-color="#EE5E2A"/></linearGradient>
+    <linearGradient id="gGeo" gradientUnits="userSpaceOnUse" x1="4" y1="1" x2="12" y2="15"><stop offset="0" stop-color="#FFEDB0"/><stop offset="1" stop-color="#D3931F"/></linearGradient>
+    <linearGradient id="gAnemo" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="14" y2="14"><stop offset="0" stop-color="#B4F5DF"/><stop offset="1" stop-color="#27A07C"/></linearGradient>
+    <linearGradient id="gElectro" gradientUnits="userSpaceOnUse" x1="4" y1="1" x2="12" y2="15"><stop offset="0" stop-color="#E6D0FF"/><stop offset="1" stop-color="#8150D6"/></linearGradient>
+    <linearGradient id="gCryo" gradientUnits="userSpaceOnUse" x1="3" y1="2" x2="13" y2="14"><stop offset="0" stop-color="#EEFCFF"/><stop offset="1" stop-color="#5DBFD9"/></linearGradient>
+    <linearGradient id="gDendro" gradientUnits="userSpaceOnUse" x1="4" y1="1" x2="12" y2="10"><stop offset="0" stop-color="#DDF59A"/><stop offset="1" stop-color="#6C9C1E"/></linearGradient>
+    <linearGradient id="gCream" gradientUnits="userSpaceOnUse" x1="3" y1="1" x2="13" y2="15"><stop offset="0" stop-color="#FCF6EA"/><stop offset="1" stop-color="#D6C5A2"/></linearGradient>
+    <linearGradient id="gCream2" gradientUnits="userSpaceOnUse" x1="8" y1="3" x2="15" y2="14"><stop offset="0" stop-color="#F3EAD6"/><stop offset="1" stop-color="#CDBB95"/></linearGradient>
+    <linearGradient id="gGold" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="14" y2="14"><stop offset="0" stop-color="#FBE6B0"/><stop offset="1" stop-color="#B48E48"/></linearGradient>
+    <linearGradient id="gInk" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="14" y2="14"><stop offset="0" stop-color="#4C5674"/><stop offset="1" stop-color="#1F2536"/></linearGradient>
+    <linearGradient id="gWood" gradientUnits="userSpaceOnUse" x1="3" y1="5" x2="13" y2="15"><stop offset="0" stop-color="#C98F57"/><stop offset="1" stop-color="#7C4F29"/></linearGradient>
+    <linearGradient id="gWood2" gradientUnits="userSpaceOnUse" x1="3" y1="2" x2="13" y2="8"><stop offset="0" stop-color="#DDA56A"/><stop offset="1" stop-color="#9A6534"/></linearGradient>
+    <linearGradient id="gMetal" gradientUnits="userSpaceOnUse" x1="3" y1="2" x2="5" y2="7"><stop offset="0" stop-color="#F2F4F8"/><stop offset="1" stop-color="#7D8597"/></linearGradient>
+    <linearGradient id="gSky" gradientUnits="userSpaceOnUse" x1="0" y1="4.3" x2="0" y2="11.7"><stop offset="0" stop-color="#5CC4F5"/><stop offset="1" stop-color="#F6DDA6"/></linearGradient>
+    <linearGradient id="gNight" gradientUnits="userSpaceOnUse" x1="2" y1="4" x2="12" y2="15"><stop offset="0" stop-color="#46527A"/><stop offset="1" stop-color="#20273C"/></linearGradient>
+    <linearGradient id="gNightTab" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="8" y2="6"><stop offset="0" stop-color="#3A4566"/><stop offset="1" stop-color="#252D45"/></linearGradient>
+    <linearGradient id="gNightOpen" gradientUnits="userSpaceOnUse" x1="2" y1="7" x2="10" y2="15"><stop offset="0" stop-color="#58658F"/><stop offset="1" stop-color="#2A3350"/></linearGradient>
+    <linearGradient id="gCreamF" gradientUnits="userSpaceOnUse" x1="2" y1="4" x2="12" y2="15"><stop offset="0" stop-color="#F6EEDC"/><stop offset="1" stop-color="#CDB98F"/></linearGradient>
+    <linearGradient id="gCreamTab" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="8" y2="6"><stop offset="0" stop-color="#E2D3B2"/><stop offset="1" stop-color="#BFA77A"/></linearGradient>
+    <linearGradient id="gCreamOpen" gradientUnits="userSpaceOnUse" x1="2" y1="7" x2="10" y2="15"><stop offset="0" stop-color="#FFF9EC"/><stop offset="1" stop-color="#D9C79F"/></linearGradient>
+
+    <symbol id="s-page" viewBox="0 0 16 16"><path d="M3.5 1.3h6.2l3 3v10.4H3.5z" fill="url(#gCream)" stroke="#8C7550" stroke-width=".7" stroke-linejoin="round"/><path d="M9.7 1.3v3h3" fill="#E5D6B6" stroke="#8C7550" stroke-width=".7" stroke-linejoin="round"/><path d="M4.3 2.3v11.4" stroke="#fff" stroke-opacity=".7" stroke-width=".6"/></symbol>
+    <symbol id="s-default" viewBox="0 0 16 16"><use href="#s-page"/><path d="M9.7 1.3v3h3z" fill="url(#gGold)"/></symbol>
+    <symbol id="s-txt" viewBox="0 0 16 16"><use href="#s-page"/><path d="M5.3 6.8h5.4M5.3 8.9h5.4M5.3 11h3.6" stroke="#7A6A4E" stroke-width=".85" stroke-linecap="round"/></symbol>
+    <symbol id="s-md" viewBox="0 0 16 16"><use href="#s-page"/><path d="M5 1.3v4l.9-.8.9.8v-4z" fill="#D2553A"/><path d="M5.3 7.4h4" stroke="#B8944E" stroke-width="1.3" stroke-linecap="round"/><path d="M5.3 9.6h5.4M5.3 11.6h4" stroke="#7A6A4E" stroke-width=".85" stroke-linecap="round"/></symbol>
+    <symbol id="s-drop" viewBox="0 0 16 16"><path d="M8 1.2C10.9 4.8 12.8 7.3 12.8 9.9a4.8 4.8 0 0 1-9.6 0C3.2 7.3 5.1 4.8 8 1.2z" fill="url(#gHydro)" stroke="#1B5A86" stroke-width=".7"/><path d="M5.7 10c0-1.5.7-2.9 1.8-4.2" stroke="#fff" stroke-opacity=".8" stroke-width="1" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="s-flame" viewBox="0 0 16 16"><path d="M8.3 1C8.9 3.6 12.8 5.4 12.8 9.6a4.8 4.8 0 0 1-9.6 0c0-2.3 1.3-3.5 2.2-5 .7 1.4 1.4 2.1 2.3 2.2C7 4.6 7.4 2.8 8.3 1z" fill="url(#gPyro)" stroke="#9C3A16" stroke-width=".7" stroke-linejoin="round"/><path d="M8 8c1.1 1 2.2 2 2.2 3.4a2.2 2.2 0 0 1-4.4 0C5.8 10.2 6.8 9.2 8 8z" fill="#FFE8AE"/></symbol>
+    <symbol id="s-gem" viewBox="0 0 16 16"><path d="M8 1.3L13.8 6 8 14.7 2.2 6z" fill="url(#gGeo)" stroke="#8A6418" stroke-width=".7" stroke-linejoin="round"/><path d="M2.2 6L5.4 6 8 1.3z" fill="#fff" fill-opacity=".45"/><path d="M2.2 6h11.6M5.4 6L8 14.7 10.6 6" stroke="#fff" stroke-opacity=".5" stroke-width=".55" fill="none"/></symbol>
+    <symbol id="s-gemblue" viewBox="0 0 16 16"><path d="M8 1.3L13.8 6 8 14.7 2.2 6z" fill="url(#gHydro)" stroke="#1B5A86" stroke-width=".7" stroke-linejoin="round"/><path d="M2.2 6L5.4 6 8 1.3z" fill="#fff" fill-opacity=".45"/><path d="M2.2 6h11.6M5.4 6L8 14.7 10.6 6" stroke="#fff" stroke-opacity=".5" stroke-width=".55" fill="none"/></symbol>
+    <symbol id="s-swirl" viewBox="0 0 16 16"><g fill="none" stroke="url(#gAnemo)" stroke-width="1.9" stroke-linecap="round"><path d="M2 6.3h7.4a2.1 2.1 0 1 0-2.1-2.1"/><path d="M2 9.5h9.5a2.3 2.3 0 1 1-2.3 2.3"/><path d="M2 12.7h3.4"/></g></symbol>
+    <symbol id="s-bolt" viewBox="0 0 16 16"><path d="M9.8 1L3.4 9.2h4.1L6.3 15l6.4-8.2H8.6z" fill="url(#gElectro)" stroke="#55339A" stroke-width=".7" stroke-linejoin="round"/><path d="M8.5 2.8L5.2 7.2" stroke="#fff" stroke-opacity=".7" stroke-width=".8" stroke-linecap="round"/></symbol>
+    <symbol id="s-book" viewBox="0 0 16 16"><path d="M8 4.2C6.2 3 4 2.6 1.5 3v9.6c2.5-.4 4.7 0 6.5 1.2z" fill="url(#gCream)" stroke="#8C7550" stroke-width=".7" stroke-linejoin="round"/><path d="M8 4.2C9.8 3 12 2.6 14.5 3v9.6c-2.5-.4-4.7 0-6.5 1.2z" fill="url(#gCream2)" stroke="#8C7550" stroke-width=".7" stroke-linejoin="round"/><path d="M3 5.6c1.2-.1 2.4.1 3.5.6M3 7.7c1.2-.1 2.4.1 3.5.6M9.5 6.2c1.1-.5 2.3-.7 3.5-.6M9.5 8.3c1.1-.5 2.3-.7 3.5-.6" stroke="#8C7550" stroke-width=".6" fill="none"/><path d="M8 4.2v9.6" stroke="#C9A55E" stroke-width="1"/></symbol>
+    <symbol id="s-star" viewBox="0 0 16 16"><path d="M8 1.2l1.6 5.2L14.8 8l-5.2 1.6L8 14.8l-1.6-5.2L1.2 8l5.2-1.6z" fill="url(#gPyro)" stroke="#9C3A16" stroke-width=".6" stroke-linejoin="round"/><circle cx="8" cy="8" r="1.4" fill="#FFF0C4"/></symbol>
+    <symbol id="s-block" viewBox="0 0 16 16"><path d="M2 4.8l6 3.2v7L2 11.8z" fill="#8F5E34" stroke="#4A2E16" stroke-width=".6" stroke-linejoin="round"/><path d="M14 4.8L8 8v7l6-3.2z" fill="#6A4122" stroke="#4A2E16" stroke-width=".6" stroke-linejoin="round"/><path d="M2 4.8l6 3.2 6-3.2v1.7L8 9.7 2 6.5z" fill="#5E8E1C"/><path d="M8 1.6l6 3.2-6 3.2-6-3.2z" fill="url(#gDendro)" stroke="#3F5E14" stroke-width=".6" stroke-linejoin="round"/><path d="M3.6 4.8L8 2.5" stroke="#fff" stroke-opacity=".6" stroke-width=".6"/></symbol>
+    <symbol id="s-image" viewBox="0 0 16 16"><rect x="1.3" y="2.8" width="13.4" height="10.4" rx=".8" fill="url(#gGold)" stroke="#7A5C26" stroke-width=".6"/><rect x="2.8" y="4.3" width="10.4" height="7.4" fill="url(#gSky)"/><path d="M2.8 11.7l3.2-3.6 2.2 2.1 2.3-2.8 2.7 4.3z" fill="#3D5A7C"/><circle cx="10.8" cy="6.3" r="1.1" fill="#FFF4CC"/></symbol>
+    <symbol id="s-term" viewBox="0 0 16 16"><rect x="1.3" y="2.3" width="13.4" height="11.4" rx="2" fill="url(#gInk)" stroke="#D3BC8E" stroke-width=".7"/><path d="M4 6.2l2.4 2-2.4 2" stroke="#F3D79C" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.6 10.6h4" stroke="#ECE5D8" stroke-width="1.3" stroke-linecap="round"/></symbol>
+    <symbol id="s-gear" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.7" fill="none" stroke="#5DBFD9" stroke-width="2.4" stroke-dasharray="2.24 2.24"/><circle cx="8" cy="8" r="4.6" fill="url(#gCryo)" stroke="#3C8CA3" stroke-width=".6"/><circle cx="8" cy="8" r="1.7" fill="#1B2333" stroke="#3C8CA3" stroke-width=".5"/></symbol>
+    <symbol id="s-branch" viewBox="0 0 16 16"><path d="M5 5.2v5.6M11 7.7c0 2.6-3 2.9-5.6 3.9" stroke="url(#gPyro)" stroke-width="1.5" fill="none" stroke-linecap="round"/><circle cx="5" cy="3.6" r="1.7" fill="url(#gPyro)" stroke="#9C3A16" stroke-width=".5"/><circle cx="5" cy="12.4" r="1.7" fill="url(#gPyro)" stroke="#9C3A16" stroke-width=".5"/><circle cx="11" cy="6" r="1.7" fill="url(#gPyro)" stroke="#9C3A16" stroke-width=".5"/></symbol>
+    <symbol id="s-parcel" viewBox="0 0 16 16"><path d="M2.6 5.8h10.8v8.4H2.6z" fill="url(#gWood)" stroke="#5A3A1E" stroke-width=".6"/><path d="M2 3.4h12V6H2z" fill="url(#gWood2)" stroke="#5A3A1E" stroke-width=".6"/><path d="M7 3.4h2v10.8H7z" fill="url(#gGold)" stroke="#7A5C26" stroke-width=".4"/><path d="M8 3.4C6.5 1.4 4.6 1.8 5.2 3c.4.7 1.6.6 2.8.4zm0 0c1.5-2 3.4-1.6 2.8-.4-.4.7-1.6.6-2.8.4z" fill="url(#gGold)" stroke="#7A5C26" stroke-width=".4"/></symbol>
+    <symbol id="s-chest" viewBox="0 0 16 16"><path d="M1.8 7.2h12.4v6.6H1.8z" fill="url(#gWood)" stroke="#5A3A1E" stroke-width=".6"/><path d="M1.8 7.2V5.6C1.8 4 3.1 3 4.8 3h6.4c1.7 0 3 1 3 2.6v1.6z" fill="url(#gWood2)" stroke="#5A3A1E" stroke-width=".6"/><path d="M4.4 3.1v10.6M11.6 3.1v10.6M1.8 7.2h12.4" stroke="url(#gGold)" stroke-width="1.1"/><rect x="6.9" y="6.3" width="2.2" height="2.8" rx=".5" fill="url(#gGold)" stroke="#7A5C26" stroke-width=".4"/></symbol>
+    <symbol id="s-pdf" viewBox="0 0 16 16"><use href="#s-txt"/><circle cx="11.2" cy="12.2" r="2.5" fill="url(#gPyro)" stroke="#9C3A16" stroke-width=".6"/><path d="M11.2 10.9v2.6M9.9 12.2h2.6" stroke="#FFE8AE" stroke-width=".7"/></symbol>
+    <symbol id="s-note" viewBox="0 0 16 16"><path d="M5.6 4.2l7-1.8v2.2l-7 1.8z" fill="url(#gAnemo)" stroke="#1F6E55" stroke-width=".5" stroke-linejoin="round"/><path d="M5.6 4.4h1v7.4h-1zM11.6 2.7h1v7.5h-1z" fill="#2E9A78"/><ellipse cx="4.6" cy="12" rx="2.1" ry="1.6" fill="url(#gAnemo)" stroke="#1F6E55" stroke-width=".5"/><ellipse cx="10.6" cy="10.4" rx="2.1" ry="1.6" fill="url(#gAnemo)" stroke="#1F6E55" stroke-width=".5"/></symbol>
+    <symbol id="s-film" viewBox="0 0 16 16"><rect x="1.3" y="3" width="13.4" height="10" rx="1.6" fill="url(#gInk)" stroke="#D3BC8E" stroke-width=".6"/><path d="M3 4.4h1.2M5.6 4.4h1.2M8.2 4.4h1.2M10.8 4.4h1.2M3 11.6h1.2M5.6 11.6h1.2M8.2 11.6h1.2M10.8 11.6h1.2" stroke="#ECE5D8" stroke-opacity=".5" stroke-width=".9"/><path d="M6.6 6.1v3.8l3.4-1.9z" fill="#F3D79C"/></symbol>
+    <symbol id="s-flask" viewBox="0 0 16 16"><path d="M6.2 1.6h3.6M6.9 1.6v4.2L3.1 12.4a1.4 1.4 0 0 0 1.2 2.1h7.4a1.4 1.4 0 0 0 1.2-2.1L9.1 5.8V1.6" fill="#DDEFF5" fill-opacity=".85" stroke="#4E6B78" stroke-width=".8" stroke-linejoin="round"/><path d="M4.5 10h7l1.3 2.5a1.1 1.1 0 0 1-1 1.6H4.2a1.1 1.1 0 0 1-1-1.6z" fill="url(#gDendro)"/><circle cx="7" cy="12" r=".7" fill="#fff" fill-opacity=".7"/></symbol>
+    <symbol id="s-hammer" viewBox="0 0 16 16"><rect x="5.9" y="6" width="2.2" height="8.6" rx=".8" fill="url(#gWood)" stroke="#5A3A1E" stroke-width=".5"/><path d="M2.4 2.6h7.4l2.8 1.9-2.8 1.9H2.4z" fill="url(#gMetal)" stroke="#4D5566" stroke-width=".6" stroke-linejoin="round"/></symbol>
+    <symbol id="s-palette" viewBox="0 0 16 16"><path d="M8 1.5a6.5 6.5 0 1 0 0 13c1.1 0 1.4-.9.9-1.6-.6-.9 0-2 1.1-2h1.6A2.9 2.9 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z" fill="url(#gCream)" stroke="#8C7550" stroke-width=".6"/><circle cx="5" cy="5.7" r="1.15" fill="#FF8A5C"/><circle cx="8.4" cy="4.2" r="1.15" fill="#F2C463"/><circle cx="11.4" cy="6.1" r="1.15" fill="#5CC4F5"/><circle cx="4.3" cy="9.1" r="1.15" fill="#A8D04A"/><circle cx="6.6" cy="11.8" r="1.15" fill="#B18BEC"/></symbol>
+
+    <!-- folders: Night (dark, gold rim) and Parchment (cream, gold rim); closed and open -->
+    <symbol id="f-night" viewBox="0 0 16 16"><path d="M1.3 4.4V3a1 1 0 0 1 1-1h3.8l1.5 1.6h6.1a1 1 0 0 1 1 1v.8" fill="url(#gNightTab)" stroke="#D3BC8E" stroke-width=".6" stroke-linejoin="round"/><path d="M1.3 4.6h13.4v8.2a1.1 1.1 0 0 1-1.1 1.1H2.4a1.1 1.1 0 0 1-1.1-1.1z" fill="url(#gNight)" stroke="#D3BC8E" stroke-width=".7" stroke-linejoin="round"/><path d="M2.3 5.7h11.4" stroke="#F3D79C" stroke-opacity=".55" stroke-width=".6"/></symbol>
+    <symbol id="f-night-open" viewBox="0 0 16 16"><path d="M1.3 7V3a1 1 0 0 1 1-1h3.8l1.5 1.6h6.1a1 1 0 0 1 1 1V7" fill="url(#gNightTab)" stroke="#D3BC8E" stroke-width=".6" stroke-linejoin="round"/><path d="M.9 6.9h13.9a.6.6 0 0 1 .6.8l-1.6 5.5a1 1 0 0 1-1 .7H2.4a1 1 0 0 1-1-.8L.3 7.7a.6.6 0 0 1 .6-.8z" fill="url(#gNightOpen)" stroke="#D3BC8E" stroke-width=".7" stroke-linejoin="round"/><path d="M1.6 7.9h12.6" stroke="#F3D79C" stroke-opacity=".6" stroke-width=".6"/></symbol>
+    <symbol id="f-cream" viewBox="0 0 16 16"><path d="M1.3 4.4V3a1 1 0 0 1 1-1h3.8l1.5 1.6h6.1a1 1 0 0 1 1 1v.8" fill="url(#gCreamTab)" stroke="#9C7E46" stroke-width=".6" stroke-linejoin="round"/><path d="M1.3 4.6h13.4v8.2a1.1 1.1 0 0 1-1.1 1.1H2.4a1.1 1.1 0 0 1-1.1-1.1z" fill="url(#gCreamF)" stroke="#9C7E46" stroke-width=".7" stroke-linejoin="round"/><path d="M2.3 5.7h11.4" stroke="#fff" stroke-opacity=".8" stroke-width=".6"/></symbol>
+    <symbol id="f-cream-open" viewBox="0 0 16 16"><path d="M1.3 7V3a1 1 0 0 1 1-1h3.8l1.5 1.6h6.1a1 1 0 0 1 1 1V7" fill="url(#gCreamTab)" stroke="#9C7E46" stroke-width=".6" stroke-linejoin="round"/><path d="M.9 6.9h13.9a.6.6 0 0 1 .6.8l-1.6 5.5a1 1 0 0 1-1 .7H2.4a1 1 0 0 1-1-.8L.3 7.7a.6.6 0 0 1 .6-.8z" fill="url(#gCreamOpen)" stroke="#9C7E46" stroke-width=".7" stroke-linejoin="round"/><path d="M1.6 7.9h12.6" stroke="#fff" stroke-opacity=".85" stroke-width=".6"/></symbol>
+  </defs>
+</svg>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Irminsul · file icons · prototype</span>
+    <h1>Element File Icons</h1>
+    <p class="lede">The first 22 icons, drawn by us on VS Code’s 16-pixel grid. Each kind of file gets a symbol and an element:
+      Python a Hydro drop, HTML a Pyro flame, JavaScript a Geo gem, Skript a grass block. Folders come in two styles; special
+      folders carry a small emblem. Below is your own Explorer at real size, then every icon up close.</p>
+  </header>
+
+  <div class="controls">
+    <div class="grp"><span>Variant</span><div class="seg" id="variant"><button type="button" data-v="night">Night</button><button type="button" data-v="abyss" aria-pressed="true">Abyss</button></div></div>
+    <div class="grp"><span>Folders</span><div class="seg" id="folders"><button type="button" data-v="night" aria-pressed="true">Night</button><button type="button" data-v="cream">Parchment</button></div></div>
+    <div class="grp"><span>Size</span><div class="seg" id="zoom"><button type="button" data-v="1" aria-pressed="true">Real (100%)</button><button type="button" data-v="1.5">150%</button><button type="button" data-v="2">200%</button></div></div>
+  </div>
+
+  <section style="display:grid;gap:12px" aria-labelledby="exTitle">
+    <h2 id="exTitle">In your Explorer</h2>
+    <div class="panes">
+      <div class="pane"><h3>My Claude</h3><div class="tree" id="tree1"></div></div>
+      <div class="pane"><h3>primalmines67 (example files)</h3><div class="tree" id="tree2"></div></div>
+    </div>
+    <p class="note">The right-hand folder is an example to show the other file kinds; its file names are made up. Files the icon theme
+      doesn’t know yet get the plain parchment page with a gold corner.</p>
+  </section>
+
+  <section style="display:grid;gap:12px" aria-labelledby="allTitle">
+    <h2 id="allTitle">Every icon</h2>
+    <div class="grid" id="grid"></div>
+  </section>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  // name, symbol, element, what it is for, which files
+  var ICONS = [
+    ['Python', 's-drop', 'Hydro', 'A water drop', '.py .pyw .pyi'],
+    ['JavaScript', 's-gem', 'Geo', 'A gold gem', '.js .mjs .cjs'],
+    ['TypeScript', 's-gemblue', 'Geo · Hydro', 'The same gem, cut in blue', '.ts .tsx'],
+    ['HTML', 's-flame', 'Pyro', 'A flame', '.html .htm'],
+    ['CSS', 's-swirl', 'Anemo', 'A wind swirl', '.css .scss'],
+    ['JSON', 's-bolt', 'Electro', 'A lightning bolt', '.json .jsonc'],
+    ['Settings', 's-gear', 'Cryo', 'A frost gear', '.ini .cfg .toml .yml .yaml .env'],
+    ['Skript', 's-block', 'Dendro', 'A grass block, for PrimalMines', '.sk'],
+    ['Markdown', 's-md', 'Paper', 'A page with a red bookmark', '.md'],
+    ['README', 's-book', 'Paper', 'An open book', 'README.md'],
+    ['CLAUDE.md', 's-star', 'Pyro', 'A guiding star', 'CLAUDE.md'],
+    ['Text', 's-txt', 'Paper', 'A written page', '.txt .log'],
+    ['Pictures', 's-image', 'Gold', 'A framed painting', '.png .jpg .gif .webp .svg'],
+    ['Scripts', 's-term', 'Night', 'A terminal slab', '.ps1 .bat .cmd .sh'],
+    ['Git', 's-branch', 'Pyro', 'A branching path', '.gitignore .gitattributes'],
+    ['package.json', 's-parcel', 'Wood · Gold', 'A wrapped parcel', 'package.json'],
+    ['Archives', 's-chest', 'Wood · Gold', 'A treasure chest', '.zip .7z .rar'],
+    ['PDF', 's-pdf', 'Pyro', 'A sealed letter', '.pdf'],
+    ['Audio', 's-note', 'Anemo', 'A bard’s notes', '.mp3 .wav .ogg'],
+    ['Video', 's-film', 'Night', 'A film frame', '.mp4 .webm .mov'],
+    ['Anything else', 's-default', 'Paper', 'A blank page, gold corner', 'every other file'],
+    ['Folder emblems', 's-flask', 'Dendro', 'tests gets a flask; docs a book, tools a hammer, themes a palette, .claude the star', 'special folders']
+  ];
+  var EXT = { py: 's-drop', pyw: 's-drop', js: 's-gem', ts: 's-gemblue', html: 's-flame', css: 's-swirl', json: 's-bolt', ini: 's-gear', yml: 's-gear',
+    toml: 's-gear', sk: 's-block', md: 's-md', txt: 's-txt', log: 's-txt', png: 's-image', jpg: 's-image', ps1: 's-term', bat: 's-term',
+    gitignore: 's-branch', zip: 's-chest', pdf: 's-pdf', mp3: 's-note', mp4: 's-film' };
+  var NAMES = { 'CLAUDE.md': 's-star', 'README.md': 's-book', 'package.json': 's-parcel' };
+  var FOLDER_EMBLEM = { docs: 's-book', tests: 's-flask', tools: 's-hammer', themes: 's-palette', '.claude': 's-star', art: 's-image', scripts: 's-block', '.git': 's-branch' };
+
+  // [name, level, kind]: kind 'o' = open folder, 'c' = closed folder, 'f' = file
+  var TREE1 = [
+    ['.claude', 0, 'o'], ['settings.local.json', 1, 'f'], ['Claude Setup', 0, 'c'], ['Visual Studio Code', 0, 'o'],
+    ['Akasha Terminal', 1, 'c'], ['Courier', 1, 'c'], ['Housecall', 1, 'c'], ['primalmines67', 1, 'c'], ['Reveile', 1, 'c'], ['Widgets', 1, 'o'],
+    ['_ideas', 2, 'c'], ['Clipboard', 2, 'c'], ['Irminsul', 2, 'o'], ['docs', 3, 'c'], ['themes', 3, 'c'], ['tools', 3, 'c'],
+    ['CLAUDE.md', 3, 'f'], ['package.json', 3, 'f'], ['README.md', 3, 'f'], ['status.md', 3, 'f'], ['update_progress.py', 3, 'f'],
+    ['Waypoint', 2, 'o'], ['desktop', 3, 'c'], ['docs', 3, 'c'], ['site', 3, 'c'], ['tests', 3, 'c'], ['status.md', 3, 'f'], ['desktop.ini', 0, 'f']
+  ];
+  var TREE2 = [
+    ['scripts', 0, 'o'], ['economy.sk', 1, 'f'], ['spawn.sk', 1, 'f'], ['art', 0, 'o'], ['logo.png', 1, 'f'], ['trailer.mp4', 1, 'f'],
+    ['theme.mp3', 1, 'f'], ['backups', 0, 'o'], ['world-2026-10.zip', 1, 'f'], ['.gitignore', 0, 'f'], ['config.yml', 0, 'f'],
+    ['index.html', 0, 'f'], ['map.js', 0, 'f'], ['shop.ts', 0, 'f'], ['style.css', 0, 'f'], ['rules.pdf', 0, 'f'], ['start.bat', 0, 'f'],
+    ['notes.txt', 0, 'f'], ['server.jar', 0, 'f']
+  ];
+
+  var st = { variant: 'abyss', folders: 'night', zoom: '1' };
+  try { var sv = JSON.parse(localStorage.getItem('irminsul-icons-view') || '{}'); ['variant', 'folders', 'zoom'].forEach(function (k) { if (sv[k]) st[k] = sv[k]; }); } catch (e) {}
+
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  function icon(name, kind) {
+    var inner;
+    if (kind === 'f') {
+      var ext = name.indexOf('.') >= 0 ? name.split('.').pop().toLowerCase() : '';
+      inner = '<use href="#' + (NAMES[name] || EXT[ext] || 's-default') + '"/>';
+    } else {
+      inner = '<use href="#f-' + st.folders + (kind === 'o' ? '-open' : '') + '"/>';
+      var em = FOLDER_EMBLEM[name];
+      if (em) inner += '<use href="#' + em + '" x="6.6" y="' + (kind === 'o' ? 6.6 : 5.9) + '" width="9.4" height="9.4"/>';
+    }
+    return '<svg viewBox="0 0 16 16" aria-hidden="true">' + inner + '</svg>';
+  }
+  function tree(id, rows) {
+    document.getElementById(id).innerHTML = rows.map(function (r) {
+      var guides = '';
+      for (var i = 1; i <= r[1]; i++) guides += '<span class="gd" style="left:calc((' + (8 * i + 7) + 'px) * var(--z, 1))"></span>';
+      return '<div class="row" style="--lv:' + r[1] + '">' + guides + '<span class="tw' + (r[2] === 'o' ? ' open' : '') + '">' + (r[2] === 'f' ? '' : '›') + '</span>' +
+        icon(r[0], r[2]) + '<span class="lbl">' + esc(r[0]) + '</span></div>';
+    }).join('');
+  }
+  function grid() {
+    document.getElementById('grid').innerHTML = ICONS.map(function (c) {
+      return '<div class="tile"><svg class="big" viewBox="0 0 16 16" aria-hidden="true"><use href="#' + c[1] + '"/></svg>' +
+        '<b><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#' + c[1] + '"/></svg>' + esc(c[0]) + '</b>' +
+        '<small><span class="el">' + esc(c[2]) + '</span><br>' + esc(c[3]) + '<br><code>' + esc(c[4]) + '</code></small></div>';
+    }).join('');
+  }
+  function render() {
+    document.documentElement.dataset.v = st.variant;
+    document.documentElement.style.setProperty('--z', st.zoom);
+    [['variant', st.variant], ['folders', st.folders], ['zoom', st.zoom]].forEach(function (p) {
+      document.querySelectorAll('#' + p[0] + ' button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.v === p[1])); });
+    });
+    tree('tree1', TREE1); tree('tree2', TREE2); grid();
+    try { localStorage.setItem('irminsul-icons-view', JSON.stringify(st)); } catch (e) {}
+  }
+  ['variant', 'folders', 'zoom'].forEach(function (k) {
+    document.getElementById(k).addEventListener('click', function (ev) {
+      var b = ev.target.closest('button'); if (!b) return;
+      st[k] = b.dataset.v; render();
+    });
+  });
+  render();
+})();
+</script>
